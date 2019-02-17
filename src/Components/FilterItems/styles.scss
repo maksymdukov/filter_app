@@ -1,0 +1,44 @@
+.filterItem {
+  .radio input[type='radio'] {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    margin: 10px 0 0 7px;
+  }
+  .radio__text {
+    position: relative;
+    padding: 0 0 0 35px;
+    cursor: pointer;
+  }
+  .radio__text:before {
+    content: '';
+    position: absolute;
+    top: 1px;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #CDD1DA;
+    border-radius: 50%;
+    background: #FFF;
+  }
+  .radio__text:after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 4px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: dimgrey;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    -webkit-transition: .2s;
+    transition: .2s;
+  }
+  .radio input[type='radio']:checked + .radio__text:after {
+    opacity: 1;
+  }
+  .radio input[type='radio']:focus + .radio__text:before {
+    box-shadow: 0 0 0 3px rgba(255, 255, 0, .7);
+  }
+}

@@ -1,0 +1,41 @@
+.filter {
+  padding: 10px;
+    width: 35%;
+  box-sizing: border-box;
+  height: 100%;
+  background-color: whitesmoke;
+}
+.filter ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+.filter ul li {
+  margin-bottom: 5px;
+  font-size: 1.3rem;
+}
+.filter .searchWrapper {
+  display: inline-block;
+  position: relative;
+}
+.filter .searchWrapper img {
+  position: absolute;
+  left: 7px;
+  height: 20px;
+  top: 5px;
+}
+.filter input[type=text] {
+  border-radius: 20px;
+  padding: 5px 5px 5px 30px;
+}
+.filter input[type=text]:focus {
+  border-radius: 20px;
+  outline: none;
+  box-shadow: 0 0 0 1px rgba(255, 255, 0, 0.7);
+}
+.filter .filterLoading {
+  text-align: center;
+}
+
+/*# sourceMappingURL=styles.css.map */
