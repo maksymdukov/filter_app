@@ -45,6 +45,7 @@ class Filter extends React.Component {
                         ? (<li className="filterLoading"><Loading/></li>)
                         : <FilterItems
                             listDB={listDB}
+                            {...{activeFilter}}
                             handleSelectFilter={this.handleSelectFilter}
                         />}
                 </ul>

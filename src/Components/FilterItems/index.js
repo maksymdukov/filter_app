@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles.scss';
 
-const FilterItems = ({listDB, handleSelectFilter}) => {
+const FilterItems = ({listDB, handleSelectFilter, activeFilter}) => {
     if (listDB.status === "success") {
         const filters = listDB.payload.results.reduce((filters, item) => {
             item.tags.forEach(tag => {
@@ -19,6 +19,7 @@ const FilterItems = ({listDB, handleSelectFilter}) => {
                             name="filter"
                             type="radio"
                             value={item}
+                            checked={activeFilter === item}
                             onChange={handleSelectFilter}
                         />
                         <div className="radio__text">{itemUpcase}</div>
