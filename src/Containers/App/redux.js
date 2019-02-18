@@ -1,7 +1,4 @@
-import {
-    REQUEST_LIST,
-    RECEIVED_LIST
-} from '../../store/types';
+import asyncFetchList from '../../store/actions/fetchListAction';
 
 export const mapStateToProps = (store) => ({
     itemList: store.itemList,
@@ -10,19 +7,6 @@ export const mapStateToProps = (store) => ({
 
 export const mapActionsToProps = (dispatch) => ({
     fetchList: (link) => {
-        dispatch({
-            type: REQUEST_LIST
-        });
-        setTimeout(() => {
-            fetch(link)
-                .then((response) => response.json())
-                .then(listObj => {
-                        dispatch({
-                            type: RECEIVED_LIST,
-                            payload: listObj
-                        });
-                    }
-                );
-        }, 1000);
+        dispatch( asyncFetchList(link) );
     }
 });
