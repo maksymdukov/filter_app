@@ -1,7 +1,12 @@
+// node modules
 import React from 'react';
-import './styles.scss';
+
+// local files and components
 import Filter from '../Filter';
 import ShowList from '../ShowList';
+
+// styles
+import './styles.scss';
 
 
 const App = () => {

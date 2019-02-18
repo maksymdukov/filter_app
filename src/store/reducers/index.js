@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux';
-import fetchListReducer from './fetchListReducer';
+import fetchListReducer from './listReducer';
 import filterReducer from './filterReducer';
 
 const rootReducer = combineReducers({

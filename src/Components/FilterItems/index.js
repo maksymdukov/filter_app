@@ -1,10 +1,16 @@
+// node modules
 import React from 'react';
-import './styles.scss';
 import PropTypes from "prop-types";
 
-const FilterItems = ({listDB, handleSelectFilter, activeFilter}) => {
-    if (listDB.status === "success") {
-        return listDB.tags.map(item => {
+// styles
+import './styles.scss';
+
+const FilterItems = ({
+                         listDB: {status, payload: {tags}},
+                         handleSelectFilter,
+                         activeFilter}) => {
+    if (status === "success") {
+        return tags.map(item => {
             let itemUpcase = item.charAt(0).toUpperCase() + item.slice(1);
             return (
                 <li key={item} className="filterItem">

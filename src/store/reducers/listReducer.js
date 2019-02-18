@@ -3,10 +3,12 @@ import {RECEIVED_LIST} from '../types';
 
 export default (state = {
     loading: false,
-    payload: {},
-    tags: [],
+    payload: {
+        listObj: {},
+        tags: []
+    },
     status: null
-                },{type, payload, tags}) => {
+                },{type, payload}) => {
     switch (type) {
         case REQUEST_LIST:
             return {
@@ -17,7 +19,6 @@ export default (state = {
             return {
                 loading: false,
                 payload,
-                tags,
                 status: "success"
             };
         default:

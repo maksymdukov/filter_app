@@ -1,12 +1,17 @@
+// node modules
 import React from 'react';
-import './styles.scss';
-import {connect} from 'react-redux';
 import PropTypes from 'prop-types'
-import {mapStateToProps, mapActionsToProps} from './redux';
+import {connect} from 'react-redux';
+
+// local files and components
 import FilterItems from '../../Components/FilterItems/';
 import Search from '../../Components/Search/';
 import Loading from '../../Components/Loading/';
 import AllFilter from "../../Components/AllFilter/";
+
+// styles and decorators values
+import {mapStateToProps, mapActionsToProps} from './redux';
+import './styles.scss';
 
 class Filter extends React.Component {
 
@@ -29,26 +34,16 @@ class Filter extends React.Component {
     };
 
     render() {
-        const {listDB, activeFilter, inputFilter} = this.props;
+        const { props: {listDB, activeFilter, inputFilter}, handleOnChange, handleSelectFilter} = this;
         return (
             <div className="filter">
                 <ul>
-                    <Search
-                        {...{inputFilter}}
-                        handleOnChange={this.handleOnChange}
-                        handleSelectFilter={this.handleSelectFilter}
-                    />
-                    <AllFilter
-                        {...{activeFilter, inputFilter}}
-                        handleSelectFilter={this.handleSelectFilter}
-                    />
+                    <Search {...{inputFilter, handleOnChange, handleSelectFilter}} />
+                    <AllFilter {...{activeFilter, inputFilter, handleSelectFilter}} />
                     {listDB.loading
                         ? (<li className="filterLoading"><Loading/></li>)
-                        : <FilterItems
-                            listDB={listDB}
-                            {...{activeFilter}}
-                            handleSelectFilter={this.handleSelectFilter}
-                        />}
+                        : <FilterItems {...{activeFilter, listDB, handleSelectFilter}} />
+                    }
                 </ul>
             </div>
         );
@@ -57,7 +52,6 @@ class Filter extends React.Component {
 
 Filter.propTypes = {
     listDB: PropTypes.shape({
-        tags: PropTypes.array,
         loading: PropTypes.bool,
         payload: PropTypes.object
     }),
