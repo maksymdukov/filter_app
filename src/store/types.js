@@ -1,5 +1,3 @@
-export const CHANGE_ITEM_LIST = 'CHANGE_ITEM_LIST';
-export const ADD_ITEM_TO_LIST = 'ADD_ITEM_TO_LIST';
 export const REQUEST_LIST = 'REQUEST_ITEMS';
 export const RECEIVED_LIST = 'RECEIVED_ITEMS';
 export const SET_INPUT_FILTER = 'SET_INPUT_FILTER';

@@ -1,14 +1,10 @@
 import {combineReducers} from 'redux';
-import itemList from './itemList';
-import fetchList from './fetchList';
-import inputFilter from './inputFilter';
-import activeFilter from './activeFilter';
+import fetchListReducer from './fetchListReducer';
+import filterReducer from './filterReducer';
 
 const rootReducer = combineReducers({
-    itemList,
-    fetchList,
-    inputFilter,
-    activeFilter
+    list: fetchListReducer,
+    filter: filterReducer
 });
 
 export default rootReducer;

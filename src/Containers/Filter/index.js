@@ -1,6 +1,7 @@
 import React from 'react';
 import './styles.scss';
 import {connect} from 'react-redux';
+import PropTypes from 'prop-types'
 import {mapStateToProps, mapActionsToProps} from './redux';
 import FilterItems from '../../Components/FilterItems/';
 import Search from '../../Components/Search/';
@@ -8,8 +9,9 @@ import Loading from '../../Components/Loading/';
 import AllFilter from "../../Components/AllFilter/";
 
 class Filter extends React.Component {
-    constructor(props) {
-        super(props);
+
+    componentDidMount() {
+        this.props.fetchList('sdks.json');
     }
 
     handleOnChange = (event) => {
@@ -37,8 +39,7 @@ class Filter extends React.Component {
                         handleSelectFilter={this.handleSelectFilter}
                     />
                     <AllFilter
-                        {...{activeFilter}}
-                        {...{inputFilter}}
+                        {...{activeFilter, inputFilter}}
                         handleSelectFilter={this.handleSelectFilter}
                     />
                     {listDB.loading
@@ -53,6 +54,19 @@ class Filter extends React.Component {
         );
     }
 }
+
+Filter.propTypes = {
+    listDB: PropTypes.shape({
+        tags: PropTypes.array,
+        loading: PropTypes.bool,
+        payload: PropTypes.object
+    }),
+    activeFilter: PropTypes.string,
+    inputFilter: PropTypes.string,
+    setInputFilter: PropTypes.func.isRequired,
+    selectFilter: PropTypes.func.isRequired,
+    fetchList: PropTypes.func.isRequired
+};
 
 export default connect(
     mapStateToProps,

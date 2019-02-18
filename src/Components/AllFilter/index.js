@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from "prop-types";
 
 const AllFilter = ({activeFilter, inputFilter, handleSelectFilter}) => {
     return (
@@ -18,4 +19,9 @@ const AllFilter = ({activeFilter, inputFilter, handleSelectFilter}) => {
     );
 };
 
+AllFilter.propTypes = {
+    activeFilter: PropTypes.string,
+    inputFilter: PropTypes.string,
+    handleSelectFilter: PropTypes.func.isRequired,
+};
 export default AllFilter;

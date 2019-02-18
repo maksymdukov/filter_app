@@ -1,8 +1,12 @@
 import {REQUEST_LIST} from '../types';
 import {RECEIVED_LIST} from '../types';
 
-export default (state = {loading: false},
-                {type, payload}) => {
+export default (state = {
+    loading: false,
+    payload: {},
+    tags: [],
+    status: null
+                },{type, payload, tags}) => {
     switch (type) {
         case REQUEST_LIST:
             return {
@@ -13,6 +17,7 @@ export default (state = {loading: false},
             return {
                 loading: false,
                 payload,
+                tags,
                 status: "success"
             };
         default:

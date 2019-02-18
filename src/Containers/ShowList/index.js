@@ -4,10 +4,9 @@ import {mapStateToProps} from './redux';
 import './styles.scss';
 import ListItem from "../../Components/ListItem/";
 import Loading from '../../Components/Loading/';
+import PropTypes from "prop-types";
 
-class ShowList extends React.Component {
-    render() {
-        let {listDB, activeFilter, inputFilter} = this.props;
+const ShowList = ({listDB, activeFilter, inputFilter}) => {
         let list = [];
         let listToRender;
         if (listDB.status === "success") {
@@ -28,7 +27,15 @@ class ShowList extends React.Component {
                     <ul>{listToRender}</ul>
                 </div>
             )
-    };
-}
+};
+ShowList.propTypes = {
+    listDB: PropTypes.shape({
+        tags: PropTypes.array,
+        loading: PropTypes.bool,
+        payload: PropTypes.object
+    }),
+    activeFilter: PropTypes.string,
+    inputFilter: PropTypes.string,
+};
 
 export default connect(mapStateToProps, null)(ShowList);

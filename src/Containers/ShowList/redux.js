@@ -1,5 +1,5 @@
 export const mapStateToProps = (store) => ({
-    inputFilter: store.inputFilter,
-    listDB: store.fetchList,
-    activeFilter: store.activeFilter
+    inputFilter: store.filter.inputFilter,
+    listDB: store.list,
+    activeFilter: store.filter.activeFilter
 });

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from "prop-types";
 
 const Search = ({inputFilter, handleOnChange, handleSelectFilter}) => {
     return (
@@ -18,12 +19,18 @@ const Search = ({inputFilter, handleOnChange, handleSelectFilter}) => {
                                value={inputFilter}
                                placeholder="Search"
                         />
-                        <img src="./images/search_icon.2b573fbc.png"/>
+                        <img alt="search icon" src="./images/search_icon.2b573fbc.png"/>
                     </div>
                 </div>
             </label>
         </li>
     );
+};
+
+Search.propTypes = {
+    handleOnChange: PropTypes.func.isRequired,
+    inputFilter: PropTypes.string,
+    handleSelectFilter: PropTypes.func.isRequired,
 };
 
 export default Search;
